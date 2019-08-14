@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Link, NavLink} from 'react-router-dom';
 // import your app here
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
@@ -31,12 +31,23 @@ const HelpPage = () => (
 
 const NotFoundPage = () => (
   <div>
-    404
+    404 - <Link to="/">Go back</Link>
   </div>
+);
+
+const Header = () => (
+  <header>
+    <h1>ExpenseHub</h1>
+    <NavLink to="/" activeClassName="is-active" exact={true}>Dashboard</NavLink>
+    <NavLink to="/create" activeClassName="is-active">Create Expense</NavLink>
+    <NavLink to="/edit" activeClassName="is-active">Edit Expense</NavLink>
+    <NavLink to="/help" activeClassName="is-active">Help</NavLink>
+  </header>
 );
 
 const routes = (
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route path="/" component={ExpenseDashboardPage} exact={true} />
         <Route path="/create" component={CreateExpensePage} />
