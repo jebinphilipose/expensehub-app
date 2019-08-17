@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production --env production",
-    "start": "webpack-dev-server --open --mode development"
+    "dev-server": "webpack-dev-server --open --mode development",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build"
   },
   "dependencies": {
     "@babel/core": "7.5.5",
