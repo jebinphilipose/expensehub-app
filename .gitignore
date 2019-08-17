@@ -81,6 +81,7 @@ $RECYCLE.BIN/
 # Project related
 node_modules/
 public/bundle.js
+public/bundle.js.map
 
 # Extra
 .idea/
