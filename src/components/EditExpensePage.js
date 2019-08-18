@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Route} from 'react-router-dom';
-import {editExpense, startRemoveExpense} from '../action/expenses';
+import {startEditExpense, startRemoveExpense} from '../action/expenses';
 import ExpenseForm from './ExpenseForm';
 import NotFoundPage from './NotFoundPage';
 
@@ -11,7 +11,7 @@ const EditExpensePage = (props) => (
     { props.expense ?
       <div>
         <ExpenseForm expense={props.expense} onSubmit={(expense) => {
-          props.dispatch(editExpense(props.expense.id, expense));
+          props.dispatch(startEditExpense(props.expense.id, expense));
           props.history.push('/');
         }} />
         <button onClick={() => {
