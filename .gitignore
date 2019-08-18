@@ -81,6 +81,7 @@ $RECYCLE.BIN/
 # Project related
 node_modules/
 public/dist/
+.env.development
 
 # Extra
 .idea/
