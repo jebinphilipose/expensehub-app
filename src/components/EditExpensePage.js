@@ -1,9 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import {startEditExpense, startRemoveExpense} from '../action/expenses';
 import ExpenseForm from './ExpenseForm';
-import NotFoundPage from './NotFoundPage';
 
 const EditExpensePage = (props) => (
   <div>
@@ -19,7 +18,7 @@ const EditExpensePage = (props) => (
           props.history.push('/');
         }}>Remove</button>
       </div> :
-      <Route component={NotFoundPage} />
+      <Redirect to="/" />
     }
   </div>
 );
