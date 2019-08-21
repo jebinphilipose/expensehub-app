@@ -1,21 +1,25 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Router, Switch, Route} from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import AddExpensePage from '../components/AddExpensePage';
 import EditExpensePage from '../components/EditExpensePage';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
-import Header from '../components/Header';
+import LoginPage from '../components/LoginPage';
 import NotFoundPage from '../components/NotFoundPage';
+import PrivateRoute from './PrivateRoute';
+
+export const history = createBrowserHistory();
 
 const AppRouter = () => (
-  <BrowserRouter>
-    <Header />
+  <Router history={history}>
     <Switch>
-      <Route path="/" component={ExpenseDashboardPage} exact={true} />
-      <Route path="/add" component={AddExpensePage} exact={true} />
-      <Route path="/edit/:id" component={EditExpensePage} exact={true} />
+      <Route path="/" component={LoginPage} exact={true} />
+      <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} exact={true} />
+      <PrivateRoute path="/add" component={AddExpensePage} exact={true} />
+      <PrivateRoute path="/edit/:id" component={EditExpensePage} exact={true} />
       <Route component={NotFoundPage} />
     </Switch>
-  </BrowserRouter>
+  </Router>
 );
 
 export default AppRouter;
