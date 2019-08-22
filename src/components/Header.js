@@ -7,10 +7,10 @@ const Header = (props) => (
   <header className="header">
     <div className="content-container">
       <div className="header__content">
-        <Link className="header__title" to="/dashboard" exact={true}>
+        <Link className="header__title" to="/dashboard">
           <h1>ExpenseHub</h1>
         </Link>
-        <button onClick={props.startLogout}>Logout</button>
+        <button className=" button button__link" onClick={props.startLogout}>Logout</button>
       </div>
     </div>
   </header>
