@@ -24,7 +24,9 @@ class ExpenseListFilters extends React.Component {
           <div className="input-group__item">
             <input
               type="text"
+              className="text-input"
               value={this.props.filters.text}
+              placeholder="Search expenses"
               onChange={(e) => {
                 this.props.dispatch(setTextFilter(e.target.value));
               }}
@@ -32,7 +34,8 @@ class ExpenseListFilters extends React.Component {
           </div>
           <div className="input-group__item">
             <select
-              value={this.props.filters.sortBY}
+              value={this.props.filters.sortBy}
+              className="select"
               onChange={(e) => {
                 if (e.target.value === 'date') {
                   this.props.dispatch(sortByDate());

@@ -6,19 +6,25 @@ import ExpenseForm from './ExpenseForm';
 
 const EditExpensePage = (props) => (
   <div>
-    <h1>Edit Expense</h1>
-    { props.expense ?
-      <div>
+    <div className="page-header">
+      <div className="content-container">
+        <h1>Edit Expense</h1>
+      </div>
+    </div>
+    { props.expense ? (
+      <div className="content-container">
         <ExpenseForm expense={props.expense} onSubmit={(expense) => {
           props.dispatch(startEditExpense(props.expense.id, expense));
           props.history.push('/');
         }} />
-        <button onClick={() => {
+        <button className="button button--secondary" onClick={() => {
           props.dispatch(startRemoveExpense(props.expense.id));
           props.history.push('/');
-        }}>Remove</button>
-      </div> :
+        }}>Remove Expense</button>
+      </div>
+    ) : (
       <Redirect to="/" />
+    )
     }
   </div>
 );

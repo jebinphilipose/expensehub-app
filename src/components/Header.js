@@ -10,7 +10,7 @@ const Header = (props) => (
         <Link className="header__title" to="/dashboard">
           <h1>ExpenseHub</h1>
         </Link>
-        <button className=" button button__link" onClick={props.startLogout}>Logout</button>
+        <button className=" button button--link" onClick={props.startLogout}>Logout</button>
       </div>
     </div>
   </header>
